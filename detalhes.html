@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Detalhes do Agendamento</title>
+</head>
+<body>
+<div class="main-detalhes">
+<div class="detalhes-agendamento">
+<h1>Detalhes do Agendamento</h1>
+<p>Seu agendamento foi realizado com sucesso!</p>
+<p>Data: <span id="data"></span></p>
+<p>Horário: <span id="horario"></span></p>
+<p>Profissional: <span id="profissional"></span></p>
+<button class="btn-finalizar" onclick="redirecionarWhatsApp()">Finalizar pelo WhatsApp</button>
+</div>
+</div>
+ 
+<script>
+    function redirecionarWhatsApp() {
+        window.location.href = "https://wa.me/35991636182";
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var params = new URLSearchParams(window.location.search);
+        var data = params.get("data");
+        var horario = params.get("horario");
+        var profissional = params.get("profissional");
+
+        document.getElementById("data").textContent = data;
+        document.getElementById("horario").textContent = horario;
+        document.getElementById("profissional").textContent = profissional;
+    });
+</script>
+
+</body>
+</html>
