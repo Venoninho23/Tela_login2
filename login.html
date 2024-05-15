@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Login - Atendente</title>
+</head>
+<body>
+<div class="main-login">
+<div class="login-container">
+<h1>Login - Atendente</h1>
+<form id="login-form" onsubmit="login(event)">
+<div class="textfield">
+<label for="username">Nome de Usuário:</label>
+<input type="text" id="username" name="username">
+</div>
+<div class="textfield">
+<label for="password">Senha:</label>
+<input type="password" id="password" name="password">
+</div>
+<button type="submit" class="btn-login">Login</button>
+</form>
+</div>
+</div>
+
+<script>
+function login(event) {
+    event.preventDefault();
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username === "Atendente" && password === "fepi123") {
+        window.location.href = "registro_agendamento.html";
+    } else {
+        alert("Nome de usuário ou senha incorretos.");
+    }
+}
+</script>
+
+</body>
+</html>

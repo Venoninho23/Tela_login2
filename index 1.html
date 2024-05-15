@@ -5,46 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 <title>Agendamento</title>
+<style>
+    .btn-login {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: none;
+        border-radius: 5px;
+        background-color: #23c48e;
+        color: #ffffff;
+        font-size: 16px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+</style>
 </head>
 <body>
+<button class="btn-login" onclick="redirecionarParaLogin()">Login</button>
 <div class="main-agendamento">
-<div class="left-agendamento">
-<h1>WhatsAgenda</h1>
-<img src="animação.svg" class="left-agendamento-image" alt="calendario">
-</div>
-<div class="right-agendamento">
-<div class="card-agendamento">
-<h1>AGENDAMENTO</h1>
-<div class="textfield">
-<label for="data">Data:</label>
-<input type="date" name="data">
-</div>
-<div class="textfield">
-<label for="horario">Horário:</label>
-<select name="horario">
-<option value="09:00">09:00</option>
-<option value="10:00">10:00</option>
-<option value="11:00">11:00</option>
-<option value="13:00">13:00</option>
-<option value="14:00">14:00</option>
-<option value="15:00">15:00</option>
-
-</select>
-</div>
-<div class="textfield">
-<label for="profissional">Profissional:</label>
-<select name="profissional">
-<option value="João">João</option>
-<option value="Maria">Maria</option>
-<option value="Pedro">Pedro</option>
-<option value="Gustavo">Gustavo</option>
-<option value="Lucas">Lucas</option>
-<option value="Leonardo">Leonardo</option>
-</select>
-</div>
-<button class="btn-agendar" onclick="agendar()">Agendar</button>
-</div>    
-</div>
+    <div class="left-agendamento">
+        <h1>WhatsAgenda</h1>
+        <img src="animação.svg" class="left-agendamento-image" alt="calendario">
+    </div>
+    <div class="right-agendamento">
+        <div class="card-agendamento">
+            <h1>AGENDAMENTO</h1>
+            <div class="textfield">
+                <label for="data">Data:</label>
+                <input type="date" name="data">
+            </div>
+            <div class="textfield">
+                <label for="horario">Horário:</label>
+                <select name="horario">
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                </select>
+            </div>
+            <div class="textfield">
+                <label for="profissional">Profissional:</label>
+                <select name="profissional">
+                    <option value="João">João</option>
+                    <option value="Maria">Maria</option>
+                    <option value="Pedro">Pedro</option>
+                    <option value="Gustavo">Gustavo</option>
+                    <option value="Lucas">Lucas</option>
+                    <option value="Leonardo">Leonardo</option>
+                </select>
+            </div>
+            <button class="btn-agendar" onclick="agendar()">Agendar</button>
+        </div>    
+    </div>
 </div>
  
 <script>
@@ -53,6 +69,10 @@
         var horario = document.querySelector('select[name="horario"]').value;
         var profissional = document.querySelector('select[name="profissional"]').value;
         window.location.href = "detalhes.html?data=" + data + "&horario=" + horario + "&profissional=" + profissional;
+    }
+
+    function redirecionarParaLogin() {
+        window.location.href = "login.html";
     }
 </script>
 </body>

@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
- 
+
 body {
     margin: 0;
     font-family: 'Noto Sans', sans-serif;
 }
- 
+
 body * {
     box-sizing: border-box;
 }
- 
-.main-agendamento {
+
+.main-agendamento,
+.main-login,
+.main-registro {
     width: 100vw;
     height: 100vh;
     background: #23c48e;
@@ -17,7 +19,7 @@ body * {
     justify-content: center;
     align-items: center;
 }
- 
+
 .left-agendamento {
     width: 55vw;
     height: 100vh;
@@ -26,25 +28,29 @@ body * {
     align-items: center;
     flex-direction: column;
 }
- 
+
 .left-agendamento > h1 {
     font-size: 3vw;
     color: #d5e6e3;
 }
- 
+
 .left-agendamento-image {
     width: 35vw;
 }
- 
-.right-agendamento {
+
+.right-agendamento,
+.login-container,
+.registro-container {
     width: 50vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
- 
-.card-agendamento {
+
+.card-agendamento,
+.login-container,
+.registro-container {
     width: 60%;
     display: flex;
     justify-content: center;
@@ -55,13 +61,15 @@ body * {
     border-radius: 20px;
     box-shadow: 0px 10px 40px #2e523c56;
 }
- 
-.card-agendamento > h1 {
+
+.card-agendamento > h1,
+.login-container > h1,
+.registro-container > h1 {
     color: #d5e6e3;
     font-weight: 800;
     margin: 0;
 }
- 
+
 .textfield {
     width: 100%;
     display: flex;
@@ -70,8 +78,9 @@ body * {
     justify-content: center;
     margin: 10px 0px;
 }
- 
-.textfield > input, .textfield > select {
+
+.textfield > input,
+.textfield > select {
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -83,59 +92,17 @@ body * {
     outline: none;
     box-sizing: border-box;
 }
- 
+
 .textfield > label {
     color: #f0ffffde;
     margin-bottom: 10px;
 }
- 
-.btn-agendar {
+
+.btn-agendar,
+.btn-login {
     width: 100%;
     padding: 16px 0px;
     margin: 0px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: #23c48e;
-    background: #d5e6e3;
-    cursor: pointer;
-    box-shadow: 0px 10px 40px -12px #00ff8052;
-}
- 
-.main-detalhes {
-    width: 100vw;
-    height: 100vh;
-    background: #23c48e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
- 
-.detalhes-agendamento {
-    width: 60%;
-    padding: 30px 35px;
-    background: #23c48e;
-    border-radius: 20px;
-    box-shadow: 0px 10px 40px #00000056;
-}
- 
-.detalhes-agendamento > h1 {
-    color: #d5e6e3;
-    font-weight: 800;
-    margin: 0;
-}
- 
-.detalhes-agendamento > p {
-    color: #f0ffffde;
-    margin-bottom: 10px;
-}
-.btn-finalizar {
-    width: 100%;
-    padding: 16px 0px;
-    margin-top: 20px;
     border: none;
     border-radius: 8px;
     outline: none;
