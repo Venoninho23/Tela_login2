@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>Detalhes do Agendamento</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Detalhes do Agendamento</title>
 </head>
 <body>
-<div class="main-detalhes">
-    <div class="detalhes-agendamento">
-        <h1>Detalhes do Agendamento</h1>
-        <p>Seu agendamento foi realizado com sucesso!</p>
-        <p>Data: <span id="data"></span></p>
-        <p>Horário: <span id="horario"></span></p>
-        <p>Profissional: <span id="profissional"></span></p>
+    <div class="main-detalhes">
+        <div class="detalhes-container">
+            <h1>Detalhes do Agendamento</h1>
+            <p>Seu agendamento foi realizado com sucesso!</p>
+            <p>Data: <span id="data"></span></p>
+            <p>Horário: <span id="horario"></span></p>
+            <p>Profissional: <span id="profissional"></span></p>
+            <button class="btn-suporte" onclick="redirecionarParaSuporte()">Suporte</button>
+            <button class="btn-confirmar" onclick="abrirModal()">Confirmar Agendamento</button>
+        </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var params = new URLSearchParams(window.location.search);
-        var data = params.get("data");
-        var horario = params.get("horario");
-        var profissional = params.get("profissional");
+    <!-- Modal -->
+    <div id="modal-confirmacao" class="modal">
+        <div class="modal-content">
+            <p>Você realmente quer finalizar o agendamento?</p>
+            <button class="btn-sim" onclick="confirmarAgendamento()">Sim</button>
+            <button class="btn-nao" onclick="fecharModal()">Não</button>
+        </div>
+    </div>
 
-        // Exibindo os dados na tela
-        document.getElementById("data").textContent = data;
-        document.getElementById("horario").textContent = horario;
-        document.getElementById("profissional").textContent = profissional;
-    });
-</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var params = new URLSearchParams(window.location.search);
+            var data = params.get("data");
+            var horario = params.get("horario");
+            var profissional = params.get("profissional");
 
+            // Exibindo os dados na tela
+            document.getElementById("data").textContent = data;
+            document.getElementById("horario").textContent = horario;
+            document.getElementById("profissional").textContent = profissional;
 
-</div>
+            // Armazenando os dados no localStorage
+            localStorage.setItem("data", data);
+            localStorage.setItem("horario", horario);
+            localStorage.setItem("profissional", profissional);
+        });
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var params = new URLSearchParams(window.location.search);
-        var data = params.get("data");
-        var horario = params.get("horario");
-        var profissional = params.get("profissional");
+        function redirecionarParaSuporte() {
+            window.location.href = "https://wa.me/35984338409";
+        }
 
-        // Exibindo os dados na tela
-        document.getElementById("data").textContent = data;
-        document.getElementById("horario").textContent = horario;
-        document.getElementById("profissional").textContent = profissional;
-    });
-</script>
+        function abrirModal() {
+            document.getElementById("modal-confirmacao").style.display = "block";
+        }
 
+        function fecharModal() {
+            document.getElementById("modal-confirmacao").style.display = "none";
+        }
+
+        function confirmarAgendamento() {
+            // Redireciona para index 1.html
+            window.location.href = "index 1.html";
+        }
+    </script>
 </body>
 </html>
