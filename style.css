@@ -114,11 +114,12 @@ body * {
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #00ff8052;
 }
+
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans', sans-serif;
-    background-color: #23c48e; /* Fundo verde */
+    background-color: #23c48e; 
     height: 100%;
 }
 
@@ -132,7 +133,7 @@ body, html {
 .detalhes-container {
     text-align: center;
     padding: 20px;
-    background-color: #ffffff; /* Fundo branco do contêiner */
+    background-color: #ffffff; 
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
@@ -143,53 +144,5 @@ body, html {
 .detalhes-container h1 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #23c48e; /* Cor verde para o título */
-}
-
-.detalhes-container p {
-    margin: 10px 0;
-    color: #333;
-}
-
-.detalhes-container span {
-    font-weight: bold;
-}
-
-.btn-suporte, .btn-confirmar, .btn-sim, .btn-nao {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #23c48e;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-suporte:hover, .btn-confirmar:hover, .btn-sim:hover, .btn-nao:hover {
-    background-color: #1eae7d;
-}
-
-.modal {
-    display: none; /* Escondido por padrão */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    color: #23c48e; 
 }

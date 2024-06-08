@@ -6,19 +6,32 @@
 <link rel="stylesheet" href="style.css">
 <title>Agendamento</title>
 <style>
-    .btn-login {
-        width: 40px;
-        height: 40px;
+    body {
+        margin: 0;
         padding: 0;
+    }
+
+    .btn-login {
+        padding: 5px 10px;
         border: none;
         border-radius: 5px;
         background-color: #23c48e;
         color: #ffffff;
-        font-size: 16px;
+        font-size: 14px;
         cursor: pointer;
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1000; 
+    }
+
+    .main-agendamento {
+        display: flex;
+        height: 100vh;
+    }
+
+    .left-agendamento, .right-agendamento {
+        flex: 1;
     }
 </style>
 </head>
@@ -32,6 +45,14 @@
     <div class="right-agendamento">
         <div class="card-agendamento">
             <h1>AGENDAMENTO</h1>
+            <div class="textfield">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome">
+            </div>
+            <div class="textfield">
+                <label for="telefone">Telefone Celular:</label>
+                <input type="text" name="telefone" pattern="\(\d{2}\)\d{5}-\d{4}" placeholder="" oninput="formatPhone(this)">
+            </div>
             <div class="textfield">
                 <label for="data">Data:</label>
                 <input type="date" name="data">
@@ -64,11 +85,33 @@
 </div>
  
 <script>
+    function formatPhone(input) {
+        var value = input.value.replace(/\D/g, '');
+        var formatted = '';
+
+        if (value.length > 0) {
+            formatted += '(' + value.substring(0, 2);
+        }
+        if (value.length >= 3) {
+            formatted += ')' + value.substring(2, 7);
+        }
+        if (value.length >= 8) {
+            formatted += '-' + value.substring(7, 11);
+        }
+
+        input.value = formatted;
+    }
+
     function agendar() {
+        var nome = document.querySelector('input[name="nome"]').value;
+        var telefone = document.querySelector('input[name="telefone"]').value;
         var data = document.querySelector('input[name="data"]').value;
         var horario = document.querySelector('select[name="horario"]').value;
         var profissional = document.querySelector('select[name="profissional"]').value;
-        window.location.href = "detalhes.html?data=" + data + "&horario=" + horario + "&profissional=" + profissional;
+        var agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+        agendamentos.push({ nome, telefone, data, horario, profissional });
+        localStorage.setItem("agendamentos", JSON.stringify(agendamentos));
+        window.location.href = "detalhes.html?nome=" + nome + "&telefone=" + telefone + "&data=" + data + "&horario=" + horario + "&profissional=" + profissional;
     }
 
     function redirecionarParaLogin() {
